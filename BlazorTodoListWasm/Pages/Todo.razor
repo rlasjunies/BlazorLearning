@@ -1,0 +1,49 @@
+﻿@page "/todo"
+
+@inject IJSRuntime JSRuntime
+
+<h3>Todo [@todos.Count( todo => todo.IsDone.Equals(false)) / @todos.Count()] </h3>
+<ul>
+    @foreach (var todo in todos)
+    {
+        <li>
+            <input type="checkbox" @bind = "todo.IsDone"/>
+            <input @bind= "todo.Title"/>
+        </li>
+    }
+</ul>
+
+<input placeholder="Enter a todo" @bind="newToDo"/>
+<button @onclick="AddTodo">Add todo</button>
+
+@code {
+
+
+    [Inject]
+    protected IJSRuntime ijsRuntime { get; set; }
+
+    private List<TodoItem> todos = new();
+    private string newToDo = "";
+
+    private async void AddTodo()
+    {
+        if(!string.IsNullOrWhiteSpace(newToDo)){
+            todos.Add(new TodoItem{ Title = newToDo});
+            newToDo = string.Empty;
+        }
+
+        
+        var isWebAssembly = this.ijsRuntime is IJSInProcessRuntime;
+
+        if (isWebAssembly)
+        {
+            Console.WriteLine("The app is running on WebAssembly");
+        }
+        else
+        {
+            Console.WriteLine("The app is running on sever-side");
+        }
+
+        await JSRuntime.InvokeVoidAsync("console.log", "Clicks to create the todo");
+    }
+}

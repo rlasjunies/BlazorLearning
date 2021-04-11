@@ -9,7 +9,7 @@ namespace BlazorTodoListWasm.Pages
     /// These tests are written entirely in C#.
     /// Learn more at https://bunit.egilhansen.com/docs/getting-started/
     /// </summary>
-    public class CounterCSharpTests : TestContext
+    public class CounterTests : TestContext
     {
         [Fact]
         public void CounterStartsAtZero()

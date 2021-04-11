@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Fluxor;
 
 namespace BlazorTodoListWasm
 {
@@ -18,6 +19,10 @@ namespace BlazorTodoListWasm
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            // Inject Fluxor
+            var currentAssembly = typeof(Program).Assembly;
+            builder.Services.AddFluxor(options => options.ScanAssemblies(currentAssembly));
 
             await builder.Build().RunAsync();
         }

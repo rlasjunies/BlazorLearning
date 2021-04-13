@@ -2,6 +2,7 @@ using BlazorTodoListWasm.Store.CounterUseCase;
 using Bunit;
 using Bunit.TestDoubles;
 using Fluxor;
+using FluxorBlazorWeb.MiddlewareTutorial.Client.Middlewares.Logging;
 using System;
 using Xunit;
 using Xunit.Abstractions;
@@ -24,7 +25,10 @@ namespace BlazorTodoListWasm.Pages
             // Store initialization
             this.Services.AddFluxor(config =>
             {
-                config.ScanAssemblies(typeof(Program).Assembly);
+                config
+                    .ScanAssemblies(typeof(Program).Assembly)
+                    .UseRouting()
+                    .AddMiddleware<LoggingMiddleware>();
             });
             this.store = this.Services.GetService(typeof(Fluxor.Store)) as IStore;
             this.store.InitializeAsync();

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Fluxor;
+using FluxorBlazorWeb.MiddlewareTutorial.Client.Middlewares.Logging;
 
 namespace BlazorTodoListWasm
 {
@@ -22,7 +23,12 @@ namespace BlazorTodoListWasm
 
             // Inject Fluxor
             var currentAssembly = typeof(Program).Assembly;
-            builder.Services.AddFluxor(options => options.ScanAssemblies(currentAssembly));
+            builder.Services.AddFluxor(
+                options => options
+                    .ScanAssemblies(currentAssembly)
+                    .UseRouting()
+                    .AddMiddleware<LoggingMiddleware>()
+               );
 
             await builder.Build().RunAsync();
         }

@@ -25,3 +25,10 @@ dotnet add .\BlazorTodoListWasmUT\BlazorTodoListWasmUT.csproj reference .\Blazor
 ````
 dotnet add package bunit --version 1.0.16
 ````
+
+
+https://blog.stevensanderson.com/2019/08/29/blazor-unit-testing-prototype/
+
+https://www.telerik.com/blogs/unit-testing-blazor-components-bunit-justmock
+
+https://github.com/mihail-vladov/Blazor-unit-testing/tree/master/BlazorUnitTests

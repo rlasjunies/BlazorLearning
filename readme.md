@@ -3,17 +3,19 @@
 - [x] Basic tuto
     - [x] Todo list
 
+- [ ] State management
+	[ASP.NET Core Blazor state management | Microsoft Docs](https://docs.microsoft.com/en-us/aspnet/core/blazor/state-management?view=aspnetcore-5.0&pivots=webassembly)
+
 - [ ] UT	
     [Getting Started with bUnit | bUnit (egilhansen.com)](https://bunit.egilhansen.com/docs/getting-started/)
 
     [egil/bUnit: A testing library for Blazor Components. You can easily define components under test in C# or Razor syntax and verify outcome using semantic HTML diffing/comparison logic. You can easily interact with and inspect components, trigger event handlers, provide cascading values, inject services, mock IJSRuntime, and perform snapshot testing. (github.com)](https://github.com/egil/bunit)
+
 		
 - [ ] E2E automatic testing
     - [ ] Specflow E2E
         - [Elegant Acceptance Testing in .NET with SpecFlow and docker](https://www.youtube.com/watch?v=qWEDkHGNhvk) 
 
-- [ ] State management
-	[ASP.NET Core Blazor state management | Microsoft Docs](https://docs.microsoft.com/en-us/aspnet/core/blazor/state-management?view=aspnetcore-5.0&pivots=webassembly)
 
 - [ ] Structured log
 	[What Is Structured Logging and Why Developers Need It – Stackify](https://stackify.com/what-is-structured-logging-and-why-developers-need-it/)

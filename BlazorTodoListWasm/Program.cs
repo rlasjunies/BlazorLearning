@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Fluxor;
 using FluxorBlazorWeb.MiddlewareTutorial.Client.Middlewares.Logging;
 
+
 namespace BlazorTodoListWasm
 {
     public class Program
@@ -28,7 +29,8 @@ namespace BlazorTodoListWasm
                     .ScanAssemblies(currentAssembly)
                     .UseRouting()
                     .AddMiddleware<LoggingMiddleware>()
-               );
+                    .UseReduxDevTools()
+               ); ;
 
             await builder.Build().RunAsync();
         }
